@@ -1,0 +1,38 @@
+.AppWrapper {
+    position: relative;
+    width: 80%;
+    padding: 0;
+    margin: 0px auto;
+    display: grid;
+    grid-template-columns: 1fr 10fr;
+    grid-template-rows: 20% 1fr;
+    grid-template-areas: "header header"
+"nav content";
+
+}
+
+.header {
+    color: white;
+    background-color: slategray;
+    grid-area: header;
+    position: relative;
+}
+.headerlogo {
+    height: 100%;
+    position: relative;
+}
+.headerlogo img{
+    height: 100%;
+    position: relative;
+}
+
+
+
+.nav {
+grid-area: nav;
+}
+
+.content {
+grid-area: content;
+    background-color: bisque;
+}
