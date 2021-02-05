@@ -16,23 +16,29 @@
     background-color: slategray;
     grid-area: header;
     position: relative;
+    padding: 10px;
 }
 .headerlogo {
     height: 100%;
     position: relative;
+    float: left;
 }
 .headerlogo img{
     height: 100%;
     position: relative;
 }
-
+.headerright {
+    float: right;
+}
 
 
 .nav {
 grid-area: nav;
+    padding: 10px;
 }
 
 .content {
 grid-area: content;
     background-color: bisque;
+    padding: 20px;
 }

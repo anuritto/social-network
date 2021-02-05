@@ -10,4 +10,11 @@ export const authAPI = {
     me() {
         return instance.get('auth/me')
     },
+    logIn(email,password,rememberMe,captcha){
+        debugger;
+        return instance.post('auth/login',{email,password,rememberMe,captcha})
+    },
+    logOut(){
+        return instance.post('auth/logout')
+    }
 };
