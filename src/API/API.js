@@ -18,3 +18,15 @@ export const authAPI = {
         return instance.post('auth/logout')
     }
 };
+export const porfileAPI = {
+    getProfile(userID){
+        return instance.get(`profile/${userID}`);
+    }
+}
+
+
+export const usersAPI = {
+    getUsers (page,count){
+        return instance.get(`/users?page=${page}&count=${count}`)
+    }
+}

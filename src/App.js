@@ -32,7 +32,7 @@ class App extends React.Component {
                                 <Route exact path='/'><Redirect to='/profile'></Redirect></Route>
                                 <Route path='/dialogs' render={()=> <DialogsContainer/>}/>
                                 <Route path='/login' render={()=> <LoginContainer/>}/>
-                                <Route path='/profile' render={()=> <ProfileContainer/>}/>
+                                <Route path='/profile/:userID?' render={(props)=> <ProfileContainer {...props}/>}/>
                                 <Route path='*' render={()=><div>404 NOT FOUND</div>}/>
                             </Switch>
                         </div>
