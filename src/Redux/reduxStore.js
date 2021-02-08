@@ -4,11 +4,13 @@ import authReducer from "./authReducer";
 import appReducer from "./appReducer";
 import { reducer as formReducer } from 'redux-form'
 import profileReducer from "./profileReducer";
+import usersReducer from "./userReducer";
 
 const reducers = combineReducers({
     auth: authReducer,
     profile: profileReducer,
     app: appReducer,
+    users: usersReducer,
     form: formReducer
 });
 // для расширения redux store в хроме

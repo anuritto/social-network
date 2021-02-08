@@ -26,7 +26,7 @@ export const porfileAPI = {
 
 
 export const usersAPI = {
-    getUsers (page,count){
+    getUsers (page,count=10){
         return instance.get(`/users?page=${page}&count=${count}`)
     }
 }

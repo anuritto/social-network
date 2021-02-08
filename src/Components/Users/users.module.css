@@ -1,0 +1,18 @@
+.userdiv{
+    background-color: white;
+    margin: 10px;
+    color: darkblue;
+}
+.avatar img {
+    position: relative;
+    height: 100%;
+}
+.avatar a {
+    position: relative;
+    height: 100%;
+}
+.avatar{
+    height: 150px;
+}
+.username {
+}

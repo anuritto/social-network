@@ -1,7 +1,6 @@
 import React from 'react';
 
 export const ProfileInfo = (props) =>{
-    debugger;
     return <div>
         <div>
             <img src={props.profile.photos.large} alt=""/>
@@ -11,7 +10,6 @@ export const ProfileInfo = (props) =>{
             <hr/>
             {
                 Object.keys(props.profile.contacts).map(key=>{
-                    debugger;
                     if (!!props.profile.contacts[key]){
                         return <div>
                             {key}: {props.profile.contacts[key]}

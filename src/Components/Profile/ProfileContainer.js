@@ -21,9 +21,11 @@ class Profile extends React.Component{
     componentDidMount() {
         debugger;
         this.refreshProfileUserData();
+
     }
     componentDidUpdate(prevProps, prevState, snapshot) {
-        if(this.props!=prevProps){
+        if(this.props.match.params.userID!=prevProps.match.params.userID) {
+            debugger;
             this.refreshProfileUserData();
         }
     }

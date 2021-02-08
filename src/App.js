@@ -11,6 +11,7 @@ import {getUserData} from "./Redux/authReducer";
 import {initializeApp} from "./Redux/appReducer";
 import {Loading} from "./Components/Common/Loading";
 import LoginContainer from "./Components/Login/Login";
+import UsersContainer from "./Components/Users/UsersContainer";
 
 class App extends React.Component {
     componentDidMount(){
@@ -31,6 +32,7 @@ class App extends React.Component {
 
                                 <Route exact path='/'><Redirect to='/profile'></Redirect></Route>
                                 <Route path='/dialogs' render={()=> <DialogsContainer/>}/>
+                                <Route path='/users' render={()=> <UsersContainer/>}/>
                                 <Route path='/login' render={()=> <LoginContainer/>}/>
                                 <Route path='/profile/:userID?' render={(props)=> <ProfileContainer {...props}/>}/>
                                 <Route path='*' render={()=><div>404 NOT FOUND</div>}/>

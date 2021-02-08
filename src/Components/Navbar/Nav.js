@@ -7,7 +7,7 @@ export const Nav = () =>{
     return <div className={styles.nav}>
         <div><NavLink to='/profile'>Profile</NavLink></div>
         <div><NavLink to='/dialogs'>Dialogs</NavLink></div>
-        <div><NavLink to=''></NavLink></div>
+        <div><NavLink to='/users'>Users</NavLink></div>
         <div><NavLink to=''></NavLink></div>
         <div><NavLink to=''></NavLink></div>
 
