@@ -12,6 +12,7 @@ import {initializeApp} from "./Redux/appReducer";
 import {Loading} from "./Components/Common/Loading";
 import LoginContainer from "./Components/Login/Login";
 import UsersContainer from "./Components/Users/UsersContainer";
+import MessagesContainer from "./Components/Dialogs/MessagesContainer";
 
 class App extends React.Component {
     componentDidMount(){
@@ -31,7 +32,8 @@ class App extends React.Component {
                             <Switch>
 
                                 <Route exact path='/'><Redirect to='/profile'></Redirect></Route>
-                                <Route path='/dialogs' render={()=> <DialogsContainer/>}/>
+                                <Route exact path='/dialogs' render={(props)=> <DialogsContainer {...props}/>}/>
+                                <Route path='/dialogs/:userID' render={(props)=> <MessagesContainer {...props}/>}/>
                                 <Route path='/users' render={()=> <UsersContainer/>}/>
                                 <Route path='/login' render={()=> <LoginContainer/>}/>
                                 <Route path='/profile/:userID?' render={(props)=> <ProfileContainer {...props}/>}/>

@@ -18,15 +18,27 @@ export const authAPI = {
         return instance.post('auth/logout')
     }
 };
+
 export const porfileAPI = {
     getProfile(userID){
         return instance.get(`profile/${userID}`);
     }
 }
 
-
 export const usersAPI = {
     getUsers (page,count=10){
         return instance.get(`/users?page=${page}&count=${count}`)
+    }
+}
+
+export const dialogsAPI ={
+    getAllDialogs(){
+        return instance.get('dialogs')
+    },
+    getMessagesWith(userId){
+        return instance.get(`dialogs/${userId}/messages`)
+    },
+    sendMessage(userId,message){
+        return instance.post(`dialogs/${userId}/messages`,{body:message})
     }
 }

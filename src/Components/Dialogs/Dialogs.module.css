@@ -1,0 +1,42 @@
+.dialogsPage{
+    display: grid;
+    grid-template-areas: 'listOfDialogs messages';
+    grid-template-columns: 1fr 1fr;
+}
+.listOfDialogs{
+    margin: 10px;
+    grid-area: listOfDialogs;
+    border: 1px solid gray;
+}
+.messages {
+    margin: 10px;
+    grid-area: messages;
+    border: 1px solid gray;
+}
+
+.dialogItem{
+    display: grid;
+    grid-template-areas: 'img name';
+    grid-template-columns: 1fr 10fr;
+    background-color: white;
+    padding: 10px;
+}
+.dialogItem img {
+    height: 60px;
+}
+.dialogItem a{
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+.dialogItemImg{
+    grid-area: img;
+}
+.dialogItemName{
+    grid-area: name;
+}
+
+.newmessage{
+
+}
