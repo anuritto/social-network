@@ -22,7 +22,10 @@ export const authAPI = {
 export const porfileAPI = {
     getProfile(userID){
         return instance.get(`profile/${userID}`);
-    }
+    },
+    updateProfile(profile){
+        return instance.put('/profile',profile)
+}
 }
 
 export const usersAPI = {
@@ -31,7 +34,10 @@ export const usersAPI = {
     }
 }
 
-export const dialogsAPI ={
+export const dialogsAPI = {
+    startDialog(userId) {
+        return instance.put(`dialogs/${userId}`)
+    },
     getAllDialogs(){
         return instance.get('dialogs')
     },
@@ -40,5 +46,6 @@ export const dialogsAPI ={
     },
     sendMessage(userId,message){
         return instance.post(`dialogs/${userId}/messages`,{body:message})
-    }
+    },
+    
 }

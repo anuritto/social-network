@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from "react-redux";
-import {getListOfDialogs, getMessages, sendMessage} from "../../Redux/dialogsReducer";
+import {getListOfDialogs, getMessages, sendMessage, startDialog} from "../../Redux/dialogsReducer";
 import {Dialogs} from "./Dialogs";
 import {Loading} from "../Common/Loading";
 import * as queryString from "query-string";
@@ -45,4 +45,4 @@ let mapStateToProps=(state)=>{
         messages: state.dialogs.messages
     }
 }
-export default connect(mapStateToProps,{getListOfDialogs,getMessages,sendMessage})(DialogsContainer);
+export default connect(mapStateToProps,{getListOfDialogs,getMessages,sendMessage,startDialog})(DialogsContainer);

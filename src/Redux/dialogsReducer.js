@@ -26,10 +26,14 @@ const dialogsReducer = (state = initialState, action) => {
 };
 
 
-// инициализация приложения
 export const getListOfDialogs = () => async (dispatch)=>{
     let response = await dialogsAPI.getAllDialogs();
     dispatch(setListOfDialogs(response.data));
+}
+export const startDialog = (userId) => async (dispatch) =>{
+    debugger;
+    let response = await dialogsAPI.startDialog(userId);
+    debugger;
 }
 export const sendMessage = (userId,message) =>async (dispatch)=> {
     let response = await dialogsAPI.sendMessage(userId,message);
