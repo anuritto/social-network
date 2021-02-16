@@ -25,12 +25,27 @@ export const porfileAPI = {
     },
     updateProfile(profile){
         return instance.put('/profile',profile)
-}
+},
+    getFollowStatus(userId){
+        return instance.get(`/follow/${userId}`)
+    },
+    getFollow (userId){
+        return instance.post(`/follow/${userId}`)
+    },
+    getUnFollow (userId){
+        return instance.delete(`/follow/${userId}`)
+    }
 }
 
 export const usersAPI = {
     getUsers (page,count=10){
         return instance.get(`/users?page=${page}&count=${count}`)
+    },
+    getFollow (userId){
+        return instance.post(`/follow/${userId}`)
+    },
+    getUnFollow (userId){
+        return instance.delete(`/follow/${userId}`)
     }
 }
 

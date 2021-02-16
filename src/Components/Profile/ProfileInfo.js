@@ -17,8 +17,13 @@ export const ProfileInfo = (props) => {
             <img src={props.profile.photos.large} alt=""/>
             {!props.isOwner && <div><NavLink to={`/dialogs/${props.userID}`}>Send Message</NavLink></div>}
             <hr/>
-
-
+            {!props.isOwner && <div>
+                {props.following?
+                    <button onClick={()=>props.unFollowUser()}>Unfollow</button>
+                :
+                    <button onClick={()=>props.followUser()}>Follow</button>
+                }
+            </div>}
             {editMode ?
                 <ProfileDataEditForm profile={props.profile} setEditMode={setEditMode} onSubmit={onSubmit} initialValues={props.profile}/>
                 :

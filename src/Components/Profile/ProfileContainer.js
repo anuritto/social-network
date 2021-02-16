@@ -1,7 +1,13 @@
 import React from 'react';
 import {compose} from "redux";
 import {connect} from "react-redux";
-import {getProfileUserData, updateProfileUserData} from "../../Redux/profileReducer";
+import {
+    checkFollow,
+    followUser,
+    getProfileUserData,
+    unFollowUser,
+    updateProfileUserData
+} from "../../Redux/profileReducer";
 import {ProfileInfo} from "./ProfileInfo";
 import {Loading} from "../Common/Loading";
 
@@ -22,6 +28,7 @@ class Profile extends React.Component{
             this.state.userID = this.props.authID;
         }
         this.props.getProfileUserData(this.state.userID);
+        this.props.checkFollow(this.state.userID);
 
     }
     componentDidMount() {
@@ -43,7 +50,8 @@ class Profile extends React.Component{
         }
         else return <div>
             <ProfileInfo profile={this.props.profile} isOwner={this.state.userID==this.props.authID}
-            userID={this.state.userID} updateProfileUserData={this.props.updateProfileUserData}/>
+            userID={this.state.userID} updateProfileUserData={this.props.updateProfileUserData} following={this.props.following}
+                         followUser={this.props.followUser} unFollowUser={this.props.unFollowUser}/>
         </div>
     }
 };
@@ -51,10 +59,11 @@ const mapStateToProps = (state) =>{
 
     return {
         authID:state.auth.userID,
-        profile: state.profile.profile
+        profile: state.profile.profile,
+        following:state.profile.following
     }
 }
 
-const ProfileContainer = compose(connect(mapStateToProps,{getProfileUserData,updateProfileUserData}))(Profile)
+const ProfileContainer = compose(connect(mapStateToProps,{getProfileUserData,updateProfileUserData,checkFollow,followUser,unFollowUser}))(Profile)
 
 export default ProfileContainer;
