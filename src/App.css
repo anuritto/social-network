@@ -36,3 +36,55 @@
     transform: rotate(360deg);
   }
 }
+body {
+  min-height: 100vh;
+  height: 100vh;
+  background-color: aliceblue;
+}
+.mycontainer{
+  height: 100%;
+  position: relative;
+}
+.appwrapper{
+  min-height: 100vh;
+  /*margin: 10px 0;*/
+  margin-top: 1em;
+
+}
+.app{
+  height: 100%;
+  position: relative;
+  display: grid;
+  grid-template-areas: "sidebar content";
+  grid-template-columns: 1fr 10fr;
+
+}
+
+.sidebar{
+  /*background-color: #b0bec5;*/
+  grid-area: sidebar;
+  position: relative;
+  padding: 10px;
+  height: 100%;
+}
+.sidebar a{
+  color: #b0bec5;
+  font-size: 1.5em;
+}
+.content{
+  border-radius: 1em;
+  padding: 2em;
+  grid-area: content;
+  background-color: white;
+}
+nav ul div {
+  padding: 0 1em;
+  cursor: pointer;
+}
+nav ul span {
+  padding: 0 1em;
+}
+
+nav ul div:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}

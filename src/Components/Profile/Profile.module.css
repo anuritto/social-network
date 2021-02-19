@@ -1,0 +1,55 @@
+.profile{
+    padding: 1em;
+    display: grid;
+    grid-template-areas: "avatar discription"
+    "buttons discription";
+    grid-template-columns: 1fr 4fr;
+    grid-template-rows: 1fr 1fr;
+    grid-column-gap: 2.5em;
+
+}
+.avatar{
+    grid-area: avatar;
+
+}
+.avatarimg{
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    border-radius: 1em;
+
+}
+.fullname{
+   /* font-family:sans-serif;*/
+    margin-bottom: 2em;
+
+}
+.discription h2,p{
+    margin: 0;
+}
+
+.discription{
+    grid-area: discription;
+}
+.buttonsitem {
+    margin: 1em auto;
+    width: 100%;
+}
+.buttonsitem button,a{
+    width: 100%;
+}
+.informationItem {
+    display: grid;
+    grid-column-gap: 1em;
+    grid-template-areas: "iname ivalue";
+    grid-template-columns: 15em 1fr;
+}
+.iname{
+    grid-area: iname;
+}
+.iname h5{
+    margin: 0;
+}
+.ivalue{
+    grid-area: ivalue;
+}

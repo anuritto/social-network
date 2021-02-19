@@ -8,7 +8,7 @@
     grid-template-rows: 100px 1fr;
     grid-template-areas: "header header"
 "nav content";
-
+min-height: 100%;
 }
 
 .header {

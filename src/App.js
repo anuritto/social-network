@@ -25,8 +25,9 @@ class App extends React.Component {
         else return (
             <>
                 <BrowserRouter>
-                    <div className={styles.AppWrapper}>
-                        <HeaderContainer/>
+                    <HeaderContainer/>
+                    {/*<div className={styles.AppWrapper}>
+
                         <Nav/>
                         <div className={styles.content}>
                             <Switch>
@@ -40,7 +41,50 @@ class App extends React.Component {
                                 <Route path='*' render={()=><div>404 NOT FOUND</div>}/>
                             </Switch>
                         </div>
+                    </div>*/}
+                    <div className={'appwrapper'}>
+                        <div className={"container mycontainer"}>
+                            <div className={"app"}>
+                                <Nav/>
+                                <div className={"content"}>
+                                    <Switch>
+
+                                        <Route exact path='/'><Redirect to='/profile'></Redirect></Route>
+                                        <Route exact path='/dialogs'
+                                               render={(props) => <DialogsContainer {...props}/>}/>
+                                        <Route path='/dialogs/:userID'
+                                               render={(props) => <MessagesContainer {...props}/>}/>
+                                        <Route path='/users' render={() => <UsersContainer/>}/>
+                                        <Route path='/login' render={() => <LoginContainer/>}/>
+                                        <Route path='/profile/:userID?'
+                                               render={(props) => <ProfileContainer {...props}/>}/>
+                                        <Route path='*' render={() => <div>404 NOT FOUND</div>}/>
+                                    </Switch>
+                                </div>
+
+                            </div>
+                        </div>
                     </div>
+                    <footer className="page-footer cyan lighten-3">
+                        <div className="container">
+                            <div className="row">
+                                <div className="col l6 s12">
+                                    <h5 className="white-text">Social Network</h5>
+                                    <p className="grey-text text-lighten-4">Front by A.Usmanov, Back by IT-kamasutra</p>
+                                </div>
+                                <div className="col l4 offset-l2 s12">
+                                    <h5 className="white-text">Links</h5>
+                                    <ul>
+                                        <li><a className="grey-text text-lighten-3"
+                                               href="https://github.com/anuritto/">github</a></li>
+                                        <li><a className="grey-text text-lighten-3"
+                                               href="https://social-network.samuraijs.com/">API</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                    </footer>
                 </BrowserRouter>
             </>
         );
