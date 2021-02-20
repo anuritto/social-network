@@ -28,10 +28,11 @@ const Header = (props) => {
             <nav className={"cyan lighten-3"}>
                 <div className={"container"}>
                     <div className={"nav-wrapper"}>
-                        <a href="#!" className={"brand-logo"}>Social Network</a>
+                        <h5  className={"left"}>Social Network</h5>
                         <ul className={"right hide-on-med-and-down"}>
                             {
                                 props.isAuth ? <><li><span>{props.login}</span></li><li><div onClick={props.logOut}>log out</div></li></>
+                                //props.isAuth ? <><li><span>{props.login}</span></li><li><div onClick={()=>alert('sdsd')}>alert</div></li></>
                                     : <li><NavLink to="/login">Log in</NavLink></li>
                             }
                             {/*<li><a href="#">Sass</a></li>

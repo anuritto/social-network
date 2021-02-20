@@ -1,7 +1,9 @@
 .dialogsPage{
-    display: grid;
-    grid-template-areas: 'listOfDialogs messages';
-    grid-template-columns: 1fr 1fr;
+
+}
+.dialogsPage h5{
+    margin: 0;
+    color:#00b8d4 ;
 }
 .listOfDialogs{
     margin: 10px;
@@ -15,14 +17,19 @@
 }
 
 .dialogItem{
+    margin: 2em 0;
     display: grid;
     grid-template-areas: 'img name';
     grid-template-columns: 1fr 10fr;
     background-color: white;
     padding: 10px;
 }
+.dialogItem:hover{
+    background-color: #f5f5f5;
+}
 .dialogItem img {
-    height: 60px;
+    border-radius: 1em;
+    width: 100%;
 }
 .dialogItem a{
     display: block;
@@ -36,7 +43,40 @@
 .dialogItemName{
     grid-area: name;
 }
+.dialogItemName h5{
+    margin: 0;
+    margin-left: 1em;
+}
 
 .newmessage{
 
+}
+.message{
+
+}
+.messageName{
+    font-size: 1.5rem;
+    color: #00838f;
+}
+.messageBody{
+
+}
+.back{
+width: 5em;
+    height: 2em;
+}
+.back:hover{
+
+    background-color: #f5f5f5;
+}
+.sendform {
+    display: grid;
+    grid-template-areas: 'sendinput sendbutton';
+    grid-template-columns: 1fr 5em;
+}
+.sendinput{
+    grid-area: sendinput;
+}
+.sendbutton{
+    grid-area: sendbutton;
 }

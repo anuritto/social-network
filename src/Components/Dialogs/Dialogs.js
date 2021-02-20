@@ -8,6 +8,7 @@ export const Dialogs = ({listOfDialogs}) => {
     if (listOfDialogs.length == 0) {
         return <div>0 dialogs, start chatting now!</div>
     } else return <div className={styles.dialogsPage}>
+        <h5>Dialogs Page</h5>
             {listOfDialogs.map(dialog => {
                 return <>
 
@@ -19,7 +20,7 @@ export const Dialogs = ({listOfDialogs}) => {
                             </div>
                             <div className={styles.dialogItemName}>
                                 <NavLink to={`/dialogs/${dialog.id}`}>
-                                    {dialog.userName}
+                                    <h5>{dialog.userName}</h5>
                                 </NavLink>
 
                             </div>

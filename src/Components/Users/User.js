@@ -14,7 +14,7 @@ export const User = (props) => {
             </div>
             <div className={style.username}>Name: {props.name}</div>
         </div>
-        <hr/>
+
         <div>s</div>
         <div><i>status: {props.status}</i></div>
         {props.followed ?
@@ -22,6 +22,6 @@ export const User = (props) => {
             :
             <button disabled={props.followingUsers.some(id=>id==props.id)} onClick={()=>props.followUser(props.id)}>Follow</button>}
 
-
+        <hr/>
     </div>
 }

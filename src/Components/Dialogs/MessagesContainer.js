@@ -6,7 +6,7 @@ import {Loading} from "../Common/Loading";
 
 
 const MessagesContainer = (props) =>{
-    debugger;
+
     let [id,setId] = useState(props.match.params.userID);
     useEffect(()=>{
         props.getMessages(id);
