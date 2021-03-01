@@ -36,7 +36,6 @@ export const getUserData = ()=> async (dispatch)=>{
 }
 export const logIn = (email,password,rememberMe,captcha) => async (dispatch) =>{
     const response = await authAPI.logIn(email,password,rememberMe,captcha);
-    debugger;
     if(response.data.resultCode===0){
         dispatch(getUserData());
     }
@@ -47,7 +46,6 @@ export const logIn = (email,password,rememberMe,captcha) => async (dispatch) =>{
     }
 };
 export const logOut = () => async (dispatch) =>{
-    debugger;
     const response = await authAPI.logOut();
     if(response.data.resultCode===0){
 dispatch(deleteUserData());

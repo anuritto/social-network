@@ -2,7 +2,7 @@ import React from 'react';
 import {compose} from "redux";
 import {connect} from "react-redux";
 import {
-    checkFollow,
+    checkFollow, clearProfile,
     followUser,
     getProfileUserData,
     unFollowUser,
@@ -10,6 +10,7 @@ import {
 } from "../../Redux/profileReducer";
 import {ProfileInfo} from "./ProfileInfo";
 import {Loading} from "../Common/Loading";
+import {withRedirectToLogin} from "../../HOC/withAuthRedirect";
 
 
 
@@ -37,10 +38,13 @@ class Profile extends React.Component{
     }
     componentDidUpdate(prevProps, prevState, snapshot) {
         if(this.props.match.params.userID!=prevProps.match.params.userID) {
-            debugger;
             this.refreshProfileUserData();
         }
     }
+    componentWillUnmount(){
+        this.props.clearProfile();
+    }
+
 
 
     render(){
@@ -61,9 +65,9 @@ const mapStateToProps = (state) =>{
         authID:state.auth.userID,
         profile: state.profile.profile,
         following:state.profile.following
-    }
+    };
 }
 
-const ProfileContainer = compose(connect(mapStateToProps,{getProfileUserData,updateProfileUserData,checkFollow,followUser,unFollowUser}))(Profile)
+const ProfileContainer = compose(withRedirectToLogin,connect(mapStateToProps,{clearProfile,getProfileUserData,updateProfileUserData,checkFollow,followUser,unFollowUser}))(Profile)
 
 export default ProfileContainer;

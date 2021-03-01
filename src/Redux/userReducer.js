@@ -36,7 +36,6 @@ const usersReducer = (state = initialState,action) => {
             }
         }
         case ADD_TO_FOLLOWING_LIST:{
-            debugger;
             return {...state,
                 followingUsers: [...state.followingUsers,action.userId]
             }
@@ -53,7 +52,6 @@ const usersReducer = (state = initialState,action) => {
 
 export const getUsers = (page, count) => async (dispatch) => {
     let response = await usersAPI.getUsers(page, count);
-    debugger;
     dispatch(setUsers(response.data.items,response.data.totalCount));
 }
 export const followUser = (userId) => (dispatch) => {
@@ -61,7 +59,6 @@ export const followUser = (userId) => (dispatch) => {
     dispatch(addToFollowingList(userId));
 
     usersAPI.getFollow(userId).then(()=>{
-        debugger;
         dispatch(removeFromFollowingList(userId));
         dispatch(follow(userId));
     })
@@ -69,7 +66,6 @@ export const followUser = (userId) => (dispatch) => {
 export const unFollowUser = (userId) => (dispatch) => {
     dispatch(addToFollowingList(userId));
     usersAPI.getUnFollow(userId).then(()=>{
-        debugger;
         dispatch(removeFromFollowingList(userId));
         dispatch(unFollow(userId));
     })

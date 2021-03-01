@@ -3,8 +3,6 @@ import {NavLink} from "react-router-dom";
 import {Field, reduxForm} from "redux-form";
 import styles from './Dialogs.module.css'
 const Messages = (props) =>{
-    debugger;
-    //let [lastMessage,setLastMessage] = useState(null);
     let lastMessage = null;
     return <>
         <NavLink to={'/dialogs'}><div className={styles.back+' valign-wrapper'}><i className="material-icons">arrow_back</i></div></NavLink>
@@ -13,7 +11,6 @@ const Messages = (props) =>{
 
         {
             props.messages.items.map(item =>{
-                debugger;
                 if(item.senderId!=lastMessage){
                     lastMessage = item.senderId;
                     return <div key={item.id} className={styles.message}>

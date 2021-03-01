@@ -4,13 +4,14 @@ import {getListOfDialogs, getMessages, sendMessage, startDialog} from "../../Red
 import {Dialogs} from "./Dialogs";
 import {Loading} from "../Common/Loading";
 import * as queryString from "query-string";
+import {compose} from "redux";
+import {withRedirectToLogin} from "../../HOC/withAuthRedirect";
 
 
 
 class DialogsContainer extends React.Component{
     componentDidMount() {
         this.props.getListOfDialogs();
-        //this.props.sendMessage(14007,'test automatic message');
         this.refreshDialogData();
         let currentDialogID = this.props.match.params.userID;
 
@@ -18,7 +19,6 @@ class DialogsContainer extends React.Component{
     }
     componentDidUpdate(prevProps, prevState, snapshot) {
         if(this.props.match.params.userID!=prevProps.match.params.userID) {
-            debugger;
             this.refreshDialogData();
         }
     }
@@ -45,4 +45,4 @@ let mapStateToProps=(state)=>{
         messages: state.dialogs.messages
     }
 }
-export default connect(mapStateToProps,{getListOfDialogs,getMessages,sendMessage,startDialog})(DialogsContainer);
+export default compose(withRedirectToLogin,connect(mapStateToProps,{getListOfDialogs,getMessages,sendMessage,startDialog}))(DialogsContainer);

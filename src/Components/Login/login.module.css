@@ -1,0 +1,21 @@
+.wrapper {
+display: grid;
+    grid-template-areas: 'login acc';
+    grid-column-gap: 2em;
+}
+.wrapper p{
+margin: 1em 0;
+}
+.loginform{
+grid-area: login;
+}
+.testacc{
+grid-area: acc;
+}
+
+.test{
+    color: #26c6da;
+}
+.please {
+    color: lightgray;
+}

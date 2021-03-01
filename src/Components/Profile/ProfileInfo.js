@@ -6,10 +6,8 @@ import style from './Profile.module.css';
 import {noPhoto} from "../Common/NoUserPhoto";
 
 export const ProfileInfo = (props) => {
-    debugger;
     let [editMode, setEditMode] = useState(false);
     let onSubmit = (formData) => {
-        debugger;
         props.updateProfileUserData(formData).then(() => {
             setEditMode(false);
         })

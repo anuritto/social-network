@@ -3,10 +3,12 @@
 import {porfileAPI as profileAPI} from "../API/API";
 import {stopSubmit} from "redux-form";
 
-const SET_USER_DATA = 'USERS/SET_IS_INITIALIZE_APP';
-const SET_FOLLOW_STATUS = 'USERS/SET_FOLLOW_STATUS'
+const SET_USER_DATA = 'PROFILE/SET_IS_INITIALIZE_APP';
+const SET_FOLLOW_STATUS = 'PROFILE/SET_FOLLOW_STATUS';
+const CLEAR_PROFILE = 'PROFILE/CLEAR_PROFILE';
 const setProfileUserData = (profile)=> ({type:SET_USER_DATA, profile});
-const setFollowStatus = (following)=>({type:SET_FOLLOW_STATUS,following})
+const setFollowStatus = (following)=>({type:SET_FOLLOW_STATUS,following});
+export const clearProfile = () =>({type:CLEAR_PROFILE});
 
 
 
@@ -21,6 +23,9 @@ const profileReducer = (state= initialState , action) => {
         case SET_FOLLOW_STATUS:{
             return {...state, following:action.following}
         }
+        case CLEAR_PROFILE: {
+            return {...state, profile: null}
+        }
         default:
             return {...state}
     }
@@ -28,14 +33,11 @@ const profileReducer = (state= initialState , action) => {
 export const followUser=()=>async (dispatch,getState) =>{
     const userId = getState().profile.profile.userId;
     let response= await profileAPI.getFollow(userId);
-    debugger;
     dispatch(setFollowStatus(true));
 }
 export const unFollowUser=()=>async (dispatch,getState) =>{
     const userId = getState().profile.profile.userId;
-    debugger;
     let response= await profileAPI.getUnFollow(userId);
-    debugger;
     dispatch(setFollowStatus(false));
 }
 export const getProfileUserData = (userId) => async (dispatch) => {
@@ -45,17 +47,13 @@ export const getProfileUserData = (userId) => async (dispatch) => {
 };
 export const checkFollow = (userId)=>async (dispatch) =>{
     let response = await profileAPI.getFollowStatus(userId);
-    debugger;
     dispatch(setFollowStatus(response.data))
-
-}
+};
 export const updateProfileUserData = (profile) => async (dispatch,getState) => {
     const userId = getState().auth.userID;
     let response = await profileAPI.updateProfile(profile);
-    debugger;
     if (response.data.resultCode == 0){
         dispatch(getProfileUserData(userId));
-        debugger;
     }
     else {
         dispatch(stopSubmit('profileEdit',{_error: response.data.messages}))
